@@ -65,24 +65,12 @@ export const defaultProfileData: ProfileData = {
   focusTitle: "Nuclear Science and Technology",
   summary:
     "Early-career Nuclear Science and Technology professional with a strong background in Computer Science. Specialized in applying Genetic Algorithms to nuclear infrastructure reliability and safety optimization.",
+  // THIS IS THE UPDATED SECTION:
   aboutHighlights: [
     {
-      title: "Nuclear Safety Research",
-      description: "Applying GA methods and reliability models to strengthen NPP safety outcomes.",
-    },
-    {
-      title: "Computational Modelling",
+      title: "Nuclear Safety & Computational Research",
       description:
-        "Building data-driven analysis workflows for complex nuclear engineering contexts.",
-    },
-    {
-      title: "Infrastructure Reliability",
-      description:
-        "Practical operations experience with secure and reliable institutional systems.",
-    },
-    {
-      title: "Nuclear Security",
-      description: "Focused on risk assessment, security culture, and protection systems.",
+        "Applying Genetic Algorithms (GA) and reliability models to strengthen NPP safety outcomes. I build data-driven analysis workflows for complex nuclear engineering contexts, focusing on infrastructure reliability, risk assessment, and the enhancement of nuclear security culture.",
     },
   ],
   education: [
