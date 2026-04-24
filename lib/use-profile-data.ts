@@ -4,44 +4,42 @@ import { useEffect, useState } from "react";
 
 import {
   defaultProfileData,
-  PROFILE_STORAGE_KEY,
   type ProfileData,
 } from "@/lib/profile";
 
 export function useProfileData() {
   const [profile, setProfile] = useState<ProfileData>(defaultProfileData);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const raw = window.localStorage.getItem(PROFILE_STORAGE_KEY);
-    if (!raw) return;
-
-    try {
-      const parsed = JSON.parse(raw) as ProfileData & { phone?: string };
-      const normalized: ProfileData = {
-        ...defaultProfileData,
-        ...parsed,
-        phoneNumbers:
-          Array.isArray(parsed.phoneNumbers) && parsed.phoneNumbers.length > 0
-            ? parsed.phoneNumbers
-            : parsed.phone
-              ? [parsed.phone]
-              : defaultProfileData.phoneNumbers,
-      };
-      setProfile(normalized);
-    } catch {
-      window.localStorage.removeItem(PROFILE_STORAGE_KEY);
-    }
+    fetch('/api/profile')
+      .then(res => res.json())
+      .then((data: ProfileData) => {
+        setProfile(data);
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      });
   }, []);
 
-  const saveProfile = (next: ProfileData) => {
+  const saveProfile = async (next: ProfileData) => {
     setProfile(next);
-    window.localStorage.setItem(PROFILE_STORAGE_KEY, JSON.stringify(next));
+    try {
+      await fetch('/api/profile', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(next),
+      });
+    } catch (error) {
+      console.error('Failed to save profile:', error);
+    }
   };
 
   const resetProfile = () => {
     setProfile(defaultProfileData);
-    window.localStorage.removeItem(PROFILE_STORAGE_KEY);
+    // Optionally reset on server
   };
 
-  return { profile, saveProfile, resetProfile };
+  return { profile, saveProfile, resetProfile, loading };
 }
