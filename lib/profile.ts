@@ -65,12 +65,11 @@ export const defaultProfileData: ProfileData = {
   focusTitle: "Nuclear Science and Technology",
   summary:
     "Early-career Nuclear Science and Technology professional with a strong background in Computer Science. Specialized in applying Genetic Algorithms to nuclear infrastructure reliability and safety optimization.",
-  // THIS IS THE UPDATED SECTION:
   aboutHighlights: [
     {
-      title: "Nuclear Safety & Computational Research",
+      title: "Computational Intelligence in Nuclear Safety",
       description:
-        "Applying Genetic Algorithms (GA) and reliability models to strengthen NPP safety outcomes. I build data-driven analysis workflows for complex nuclear engineering contexts, focusing on infrastructure reliability, risk assessment, and the enhancement of nuclear security culture.",
+        "My research focuses on optimizing Nuclear Power Plant (NPP) reliability and safety outcomes through Genetic Algorithms (GA) and Weibull parameter estimation. I am dedicated to building data-driven analysis workflows for complex engineering contexts, with a specialized interest in infrastructure reliability and the enhancement of nuclear security culture.",
     },
   ],
   education: [
@@ -186,7 +185,7 @@ export const defaultProfileData: ProfileData = {
       contact: "Contact",
     },
     aboutTitle: "About Me",
-    doingTitle: "What I'm Doing",
+    doingTitle: "Research Interests",
     certificatesTitle: "Certificates",
     educationTitle: "Education",
     experienceTitle: "Experience",
