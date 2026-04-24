@@ -1,17 +1,34 @@
-import { sql } from '@vercel/postgres';
+import { createClient } from '@supabase/supabase-js';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { defaultProfileData, type ProfileData } from '@/lib/profile';
 
+const supabase = createClient(
+  process.env.SUPABASE_URL!,
+  process.env.SUPABASE_ANON_KEY!
+);
+
 export async function GET() {
   try {
-    const result = await sql`SELECT data FROM profile WHERE id = 1`;
-    if (result.rows.length > 0) {
-      const profile = JSON.parse(result.rows[0].data) as ProfileData;
-      return NextResponse.json(profile);
+    const { data, error } = await supabase
+      .from('profile')
+      .select('data')
+      .eq('id', 1)
+      .single();
+
+    if (error && error.code !== 'PGRST116') { // Not found
+      throw error;
+    }
+
+    if (data) {
+      return NextResponse.json(JSON.parse(data.data));
     } else {
-      // Insert default if not exists
-      await sql`INSERT INTO profile (id, data) VALUES (1, ${JSON.stringify(defaultProfileData)})`;
+      // Insert default
+      const { error: insertError } = await supabase
+        .from('profile')
+        .insert({ id: 1, data: JSON.stringify(defaultProfileData) });
+
+      if (insertError) throw insertError;
       return NextResponse.json(defaultProfileData);
     }
   } catch (error) {
@@ -23,7 +40,11 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const profile: ProfileData = await request.json();
-    await sql`UPDATE profile SET data = ${JSON.stringify(profile)} WHERE id = 1`;
+    const { error } = await supabase
+      .from('profile')
+      .upsert({ id: 1, data: JSON.stringify(profile) });
+
+    if (error) throw error;
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Database error:', error);

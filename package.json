@@ -69,6 +69,8 @@
     "@heroicons/react": "^2.1.1",
     "@react-three/drei": "^9.93.0",
     "@react-three/fiber": "^8.15.13",
+    "@supabase/supabase-js": "^2.104.1",
+    "@vercel/postgres": "^0.10.0",
     "clsx": "^2.1.0",
     "framer-motion": "^10.17.12",
     "next": "14.2.15",
