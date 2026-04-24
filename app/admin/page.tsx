@@ -314,6 +314,44 @@ export default function AdminPage() {
     reader.readAsDataURL(file);
   };
 
+  const exportProfile = () => {
+    try {
+      const json = JSON.stringify(profile, null, 2);
+      const blob = new Blob([json], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = "portfolio-profile.json";
+      anchor.click();
+      URL.revokeObjectURL(url);
+      setIsError(false);
+      setMessage("Profile exported. Import this file on another device.");
+    } catch {
+      setIsError(true);
+      setMessage("Failed to export profile.");
+    }
+  };
+
+  const importProfile = (file: File | undefined) => {
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const raw = typeof reader.result === "string" ? reader.result : "";
+        const parsed = JSON.parse(raw) as ProfileData;
+        saveProfile(parsed);
+        setJsonText(JSON.stringify(parsed, null, 2));
+        setIsError(false);
+        setMessage("Profile imported successfully.");
+      } catch {
+        setIsError(true);
+        setMessage("Invalid profile file. Please import a valid JSON export.");
+      }
+    };
+    reader.readAsText(file);
+  };
+
   const handleReset = () => {
     resetProfile();
     setJsonText(JSON.stringify(defaultProfileData, null, 2));
@@ -364,6 +402,21 @@ export default function AdminPage() {
           <button onClick={logout} className="py-2 px-4 rounded-lg border border-[#2A0E61] text-white">
             Logout
           </button>
+          <button
+            onClick={exportProfile}
+            className="py-2 px-4 rounded-lg border border-[#2A0E61] text-white"
+          >
+            Export Profile
+          </button>
+          <label className="py-2 px-4 rounded-lg border border-[#2A0E61] text-white cursor-pointer">
+            Import Profile
+            <input
+              type="file"
+              accept="application/json"
+              className="hidden"
+              onChange={(e) => importProfile(e.target.files?.[0])}
+            />
+          </label>
         </div>
 
         {message && (
