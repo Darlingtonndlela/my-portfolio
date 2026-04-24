@@ -57,7 +57,7 @@ export type ProfileData = {
 
 export const defaultProfileData: ProfileData = {
   name: "Darlington Ndlela",
-  profileImage: "https://github.com/Darlingtonndlela.png",
+  profileImage: "/profile.png",
   location: "Obninsk, Kaluzhskaya obl., Russia",
   phoneNumbers: ["+79960300161"],
   email: "darlingtonndlela@gmail.com",
