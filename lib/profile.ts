@@ -1,4 +1,4 @@
-export const PROFILE_STORAGE_KEY = "dn_profile_data_v1";
+export const PROFILE_STORAGE_KEY = "dn_profile_data_v2";
 
 export type TextEntry = {
   title: string;
