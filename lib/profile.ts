@@ -68,7 +68,7 @@ export const defaultProfileData: ProfileData = {
   aboutHighlights: [
     {
       title: "Nuclear Safety Research",
-      description: "Applying GA methods and reliability models to strengthen NPP safety outcomes.",
+      description: "My research focuses on optimizing Nuclear Power Plant (NPP) reliability and safety outcomes through Genetic Algorithms (GA) and Weibull parameter estimation. I am dedicated to building data-driven analysis workflows for complex engineering contexts, with a specialized interest in infrastructure reliability and the enhancement of nuclear security culture.",
     },
     {
       title: "Computational Modelling",
