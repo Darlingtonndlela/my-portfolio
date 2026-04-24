@@ -66,7 +66,8 @@ export default function Home() {
 
           <section>
             <h3 className="text-2xl font-semibold text-white mb-4">{profile.uiText.doingTitle}</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {/* FIXED LINE BELOW: Removed md:grid-cols-2 to make the box full-width */}
+            <div className="grid grid-cols-1 gap-4">
               {profile.aboutHighlights.map((highlight) => (
                 <div
                   key={`${highlight.title}-${highlight.description}`}

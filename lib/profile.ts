@@ -1,4 +1,4 @@
-export const PROFILE_STORAGE_KEY = "dn_profile_data_v1";
+export const PROFILE_STORAGE_KEY = "dn_profile_data_v2";
 
 export type TextEntry = {
   title: string;
@@ -57,7 +57,7 @@ export type ProfileData = {
 
 export const defaultProfileData: ProfileData = {
   name: "Darlington Ndlela",
-  profileImage: "/profile.png",
+  profileImage: "profile.png",
   location: "Obninsk, Kaluzhskaya obl., Russia",
   phoneNumbers: ["+79960300161"],
   email: "darlingtonndlela@gmail.com",
@@ -70,19 +70,6 @@ export const defaultProfileData: ProfileData = {
       title: "Nuclear Safety Research",
       description: "My research focuses on optimizing Nuclear Power Plant (NPP) reliability and safety outcomes through Genetic Algorithms (GA) and Weibull parameter estimation. I am dedicated to building data-driven analysis workflows for complex engineering contexts, with a specialized interest in infrastructure reliability and the enhancement of nuclear security culture.",
     },
-    {
-      title: "Computational Modelling",
-      description:
-        "Building data-driven analysis workflows for complex nuclear engineering contexts.",
-    },
-    {
-      title: "Infrastructure Reliability",
-      description:
-        "Practical operations experience with secure and reliable institutional systems.",
-    },
-    {
-      title: "Nuclear Security",
-      description: "Focused on risk assessment, security culture, and protection systems.",
     },
   ],
   education: [
@@ -198,7 +185,7 @@ export const defaultProfileData: ProfileData = {
       contact: "Contact",
     },
     aboutTitle: "About Me",
-    doingTitle: "What I'm Doing",
+    doingTitle: "Research Interests",
     certificatesTitle: "Certificates",
     educationTitle: "Education",
     experienceTitle: "Experience",
