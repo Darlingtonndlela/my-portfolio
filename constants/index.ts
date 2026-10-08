@@ -94,7 +94,7 @@ export const SOCIALS = [
   {
     name: "Phone",
     icon: FaPhone,
-    link: "tel:+79960300161",
+    link: "tel:+263782881303",
   },
   {
     name: "LinkedIn",
