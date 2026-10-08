@@ -58,13 +58,13 @@ export type ProfileData = {
 export const defaultProfileData: ProfileData = {
   name: "Darlington Ndlela",
   profileImage: "profile.png",
-  location: "Obninsk, Kaluzhskaya obl., Russia",
-  phoneNumbers: ["+79960300161"],
+  location: "Zvishavane, Zimbabwe",
+  phoneNumbers: ["+263782881303"],
   email: "darlingtonndlela@gmail.com",
   mephiPortfolioUrl: "https://eis.mephi.ru/Portfolio/",
   focusTitle: "Nuclear Science and Technology",
   summary:
-    "Early-career Nuclear Science and Technology professional with a strong background in Computer Science. Specialized in applying Genetic Algorithms to nuclear infrastructure reliability and safety optimization.",
+    "Nuclear Technologist & Computational Safety Specialist specializing in Radioecology and Radiation Safety with a strong foundation in scientific computing. Core expertise spans radiation protection, environmental safety, and applying Genetic Algorithms to Weibull parameter estimation for component reliability analysis. Recipient of multiple international awards with extensive conference presentation experience across innovative nuclear systems and safety research.",
   aboutHighlights: [
     {
       title: "Nuclear Safety Research",
@@ -76,16 +76,16 @@ export const defaultProfileData: ProfileData = {
     {
       title: "MSc in Nuclear Physics and Technology",
       subtitle: "National Research Nuclear University MEPhI, Russia",
-      period: "Expected August 2026",
+      period: "August 2026",
       bullets: [
         "Related Coursework: Nuclear Infrastructure, Safety of Nuclear Power Engineering, NPP Reliability Analysis, Genetic Algorithms in Safety of NPPs, Dosimetry.",
-        "GPA: 4.83/5",
+        "GPA: 4.88/5",
       ],
     },
     {
       title: "BSc (Hons) Computer Science",
       subtitle: "Midlands State University, Zimbabwe",
-      period: "2022",
+      period: "August 2022",
       bullets: [
         "Related Coursework: Information Security, Database Systems, Machine Learning, Data Mining.",
         "Grade: 1st Class Honours",
